@@ -8020,7 +8020,7 @@
 <item id="widget_item183" href="widgets/Streaming_video/script/jquery-3.6.0.min.js" media-type="text/javascript"/>
 <item id="widget_item184" href="widgets/Streaming_video/script/jquery-ui.min.js" media-type="text/javascript"/>
 <item id="widget_item185" href="widgets/Streaming_video/script/slider-a11y-vertical.js" media-type="text/javascript"/>
-<item id="widget_item186" href="widgets/Streaming_video/video/webm_high.webm" media-type="video/webm"/>
+
 <item id="widget_item187" href="widgets/Streaming_video/xhtml/Streaming_video.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
 <item id="widget_item188" href="widgets/True_False/css/style.css" media-type="text/css"/>
 <item id="widget_item189" href="widgets/True_False/fonts/InklingSerifWeb-Regular.ttf" media-type="application/vnd.ms-opentype"/>
@@ -8074,7 +8074,7 @@
 <item id="widget_item237" href="widgets/MCMS/js/QUIZ.js" media-type="text/javascript"/>
 <item id="widget_item238" href="widgets/MCMS/script/jquery-3.6.0.min.js" media-type="text/javascript"/>
 <item id="widget_item239" href="widgets/MCMS/xhtml/MCMS.xhtml" properties="scripted" media-type="application/xhtml+xml"/>
-<item id="widget_item240" href="widgets/Streaming_video/video/webm_high.mp4" media-type="video/mp4"/>
+
 <item id="widget_item241" href="widgets/Glossary/script/glossary-poptip.js" media-type="text/javascript"/>
 <item id="widget_item242" href="widgets/Guided_Tour/script/main.js" media-type="text/javascript"/>
 <item id="widget_item243" href="widgets/Glossary/images/glossry-img.png" media-type="image/png"/>
