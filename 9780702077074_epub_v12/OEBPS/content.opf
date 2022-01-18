@@ -67,6 +67,15 @@
       <item id="media_css" href="Style/media.css" media-type="text/css"/>
       <item id="math_css" href="Style/math.css" media-type="text/css"/>
       <item id="id_js" href="Style/math.js" media-type="text/javascript"/>
+      <item id="zoominimage"
+            href="Style/zoom-in-svgrepo-com.svg"
+            media-type="image/svg+xml"/>
+      <item id="zoomoutimage"
+            href="Style/zoom-out-svgrepo-com.svg"
+            media-type="image/svg+xml"/>
+      <item id="zoompopupcloseimage"
+            href="Style/close-svgrepo-com.svg"
+            media-type="image/svg+xml"/>
       <item id="CharisSILB" href="Style/fonts/CharisSILB.ttf"
             media-type="application/vnd.ms-opentype"/>
       <item id="CharisSILBI" href="Style/fonts/CharisSILBI.ttf"

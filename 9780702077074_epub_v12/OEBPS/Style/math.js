@@ -15,45 +15,6 @@ function mathmlImg() {
 	}
 }
 
-function zoom_image_2nd(img){
-    var imgWdt = img.clientWidth;
-    var parentWdt = img.parentElement.clientWidth;
-    var percWidth = imgWdt/parentWdt*100;
-	percWidth = Number(percWidth.toFixed(2));
-	if(percWidth>95){
-		percWidth = 100;
-	}
-	var zlevel = img.getAttribute("zlevel")
-	var orgperc = img.getAttribute("orgperc")
-	var newWidth = getDoubbledWidth(percWidth, orgperc, zlevel)
-	if(orgperc==null || orgperc == undefined){
-		orgperc = percWidth;
-	}
-	//document.getElementById("naveenm").innerHTML = "zlevel: " + zlevel + ", orgperc: " + orgperc + ", percWidth: " + percWidth + ", newWidth:" +newWidth;
-	if(zlevel == null || zlevel == undefined || zlevel=="0"){
-		img.setAttribute("orgperc", percWidth);
-		img.style.transition = "width 0.5s ease";
-		img.style.width = newWidth + "%";
-		img.setAttribute("zlevel", "1");
-	}
-	else if(zlevel=="1"){
-		if(percWidth<100){
-			img.style.transition = "width 0.5s ease";
-			img.style.width = newWidth + "%";
-			img.setAttribute("zlevel", "2");
-		}
-		else{
-			img.style.transition = "width 0.5s ease";
-			img.style.width = orgperc + "%";
-			img.setAttribute("zlevel", "0");
-		}
-	}
-	else if(zlevel=="2"){
-		img.style.transition = "width 0.5s ease";
-		img.style.width = orgperc + "%";
-		img.setAttribute("zlevel", "0");
-	}
-}
 function zoom_image(img){
     var imgWdt = img.clientWidth;
     var parentWdt = img.parentElement.clientWidth;
@@ -65,14 +26,8 @@ function zoom_image(img){
 	if(orgperc==null || orgperc == undefined){
 		orgperc = percWidth;
 	}
-	//document.getElementById("naveenm").innerHTML = "zlevel: " + zlevel + ", orgperc: " + orgperc + ", percWidth: " + percWidth + ", newWidth:" +newWidth;
+	
 	if(zlevel == null || zlevel == undefined || zlevel=="0"){
-		/*imageElms.forEach(element => {
-			var orgpercwidth = element.getAttribute("orgperc")
-			if(orgpercwidth!=null && orgpercwidth!=undefined){
-				element.style.width = orgpercwidth + "%";
-			}
-		});*/
 		img.setAttribute("orgperc", percWidth);
 		img.style.transition = "width 0.5s ease";
 		img.style.width = newWidth + "%";
@@ -83,6 +38,15 @@ function zoom_image(img){
 		img.style.width = orgperc + "%";
 		img.setAttribute("zlevel", "0");
 	}
+}
+
+function zoom_popup(img){
+	var imgWdt = img.clientWidth;
+	var imgsrc = img.src;
+	document.querySelector(".zoom_image_popup .zoom_image").src = imgsrc;
+	document.querySelector(".zoom_image_popup .zoom_image").style.width = imgWdt + "px";
+	document.querySelector(".zoom_image_popup .zoom_image").setAttribute("orgwdt", imgWdt);
+	document.querySelector(".zoom_image_popup").style.display = 'block';
 }
 
 function getNewWidth(imgWdt){
@@ -98,7 +62,7 @@ function getDoubbledWidth(percWidth, oriWdt){
 	}
 	return newWidth;
 }
-var imageElms = document.querySelectorAll("figure img");
+var imageElms = document.querySelectorAll("figure.fig img");
 imageElms.forEach(element => {
 	element.addEventListener("click", function(){
 		zoom_image(this)
@@ -116,3 +80,28 @@ setTimeout(function(){
 		}
 	});
 },500)
+
+var imageElms = document.querySelectorAll("figure.zoompop img");
+imageElms.forEach(element => {
+	element.addEventListener("click", function(){
+		zoom_popup(this)
+	});
+});
+
+document.getElementById("btnzoomin").addEventListener("click", function(){
+	var imgcurrwdt = document.querySelector(".zoom_image_popup .zoom_image").clientWidth;
+	var orgwdt = Number(document.querySelector(".zoom_image_popup .zoom_image").getAttribute("orgwdt"))
+	document.querySelector(".zoom_image_popup .zoom_image").style.width = imgcurrwdt + (orgwdt/2) + "px";
+});
+document.getElementById("btnzoomout").addEventListener("click", function(){
+	var imgcurrwdt = document.querySelector(".zoom_image_popup .zoom_image").clientWidth;
+	var orgwdt = Number(document.querySelector(".zoom_image_popup .zoom_image").getAttribute("orgwdt"))
+	var newwdt = imgcurrwdt - (orgwdt/2);
+	if(newwdt>0){
+		document.querySelector(".zoom_image_popup .zoom_image").style.width = imgcurrwdt - (orgwdt/2) + "px";
+	}
+});
+document.getElementById("btnclosezoom").addEventListener("click", function(){
+	document.querySelector(".zoom_image_popup .zoom_image").src = "";
+	document.querySelector(".zoom_image_popup").style.display = 'none';
+});
