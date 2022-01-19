@@ -62,12 +62,6 @@ function getDoubbledWidth(percWidth, oriWdt){
 	}
 	return newWidth;
 }
-var imageElms = document.querySelectorAll("figure.fig img");
-imageElms.forEach(element => {
-	element.addEventListener("click", function(){
-		zoom_image(this)
-	});
-});
 
 setTimeout(function(){
 	imageElms.forEach(element => {
@@ -80,6 +74,13 @@ setTimeout(function(){
 		}
 	});
 },500)
+
+var imageElms = document.querySelectorAll("figure.fig img");
+imageElms.forEach(element => {
+	element.addEventListener("click", function(){
+		zoom_popup(this)
+	});
+});
 
 var imageElms = document.querySelectorAll("figure.zoompop img");
 imageElms.forEach(element => {
