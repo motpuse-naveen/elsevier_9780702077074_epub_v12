@@ -217,10 +217,10 @@
 			var duration = $('.playVideo').duration;
 			$('.total-time').html(secondsToTime($('.playVideo')[0].duration));
 			$('.playVideo')[0].volume = 0.5;
-			$('.playVideo').css({ 'width': $(window).width() + 'px', 'height': ($(window).height() - 88) + 'px', 'aspect-ratio': 'auto' + $(window).width() / ($(window).height() - 88) })
+			$('.playVideo').css({ 'width': $(window).width() + 'px', 'height': ($(window).height()) + 'px', 'aspect-ratio': 'auto' + ($(window).width()) / ($(window).height()) })
 		};
 		$(window).resize(function () {
-			$('.playVideo').css({ 'width': $(window).width() + 'px', 'height': ($(window).height() - 88) + 'px', 'aspect-ratio': 'auto' + $(window).width() / ($(window).height() - 88) });
+			$('.playVideo').css({ 'width': $(window).width() + 'px', 'height': ($(window).height()) + 'px', 'aspect-ratio': 'auto' + ($(window).width()) / ($(window).height()) });
 		})
 		var videoDuration;
 		$('.play-pause').click(function () {
